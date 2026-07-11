@@ -3,300 +3,341 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Smokehaus 313 | Storefront Site</title>
+    <title>Smokehaus 313 | Detroit Storefront</title>
     <meta
       name="description"
-      content="Smokehaus 313 storefront site with hours, Instagram updates, and a clean first look at the brand."
+      content="Smokehaus 313 is a Detroit storefront smoke shop with 21+ access, posted hours, Instagram updates, and a bold neon-street look."
     />
     <link rel="icon" type="image/png" href="./assets/logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Archivo+Expanded:wght@600;700&family=Space+Grotesk:wght@400;500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body>
-    <div class="site-shell">
-      <header class="topbar">
-        <a class="brand-lockup" href="#top" aria-label="Smokehaus 313 home">
-          <span class="brand-mark">313</span>
-          <span class="brand-copy">
+  <body class="gate-open">
+    <div class="age-gate" data-age-gate>
+      <div class="age-gate__backdrop"></div>
+      <section class="age-gate__panel" aria-labelledby="age-gate-title">
+        <div class="age-gate__logo">
+          <img src="./assets/logo.png" alt="Smokehaus 313 logo" />
+        </div>
+        <p class="age-gate__eyebrow">21+ only</p>
+        <h1 id="age-gate-title">Step into Smokehaus 313</h1>
+        <p class="age-gate__copy">
+          This storefront site is for visitors 21 and older. Drop your date of
+          birth below to enter.
+        </p>
+
+        <form class="age-gate__form" data-age-form>
+          <label>
+            <span>Month</span>
+            <input
+              type="text"
+              inputmode="numeric"
+              maxlength="2"
+              placeholder="MM"
+              aria-label="Birth month"
+              data-age-month
+            />
+          </label>
+          <label>
+            <span>Day</span>
+            <input
+              type="text"
+              inputmode="numeric"
+              maxlength="2"
+              placeholder="DD"
+              aria-label="Birth day"
+              data-age-day
+            />
+          </label>
+          <label>
+            <span>Year</span>
+            <input
+              type="text"
+              inputmode="numeric"
+              maxlength="4"
+              placeholder="YYYY"
+              aria-label="Birth year"
+              data-age-year
+            />
+          </label>
+
+          <div class="age-gate__actions">
+            <button class="button button-neon" type="submit">Enter site</button>
+            <button class="button button-ghost" type="button" data-age-exit>
+              Not 21+
+            </button>
+          </div>
+        </form>
+
+        <p class="age-gate__error" data-age-error aria-live="polite"></p>
+      </section>
+    </div>
+
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand-chip" href="#top" aria-label="Smokehaus 313 home">
+          <span class="brand-chip__stamp">313</span>
+          <span class="brand-chip__copy">
             <strong>Smokehaus 313</strong>
-            <small>Storefront site</small>
+            <small>Detroit storefront smoke shop</small>
           </span>
         </a>
 
-        <nav class="main-nav" aria-label="Primary">
-          <a href="#vibe">Vibe</a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="#pull-up">Pull Up</a>
           <a href="#shelves">Shelves</a>
           <a href="#hours">Hours</a>
           <a href="#contact">Contact</a>
         </nav>
 
         <a
-          class="button button-small button-outline"
+          class="button button-ghost header-cta"
           href="https://www.instagram.com/smoke_haus313/"
           target="_blank"
           rel="noreferrer"
         >
-          Instagram
+          Hit the IG
         </a>
       </header>
 
       <main id="top">
         <section class="hero">
-          <div class="hero-copy">
-            <p class="eyebrow">313-built energy. Storefront first.</p>
+          <div class="hero__copy">
+            <p class="section-mark">Detroit smoke shop energy</p>
             <h1>
-              A clean digital home for
-              <span class="hero-brand">
-                <span>Smokehaus</span>
-                <span>313</span>
-              </span>
+              Smokehaus 313
+              <span>Street-lit storefront. Loud color. No fake polish.</span>
             </h1>
-            <p class="hero-text">
-              The site starts simple on purpose: easy hours, a strong first
-              impression, and room to grow into photos, shelves, and new shop
-              updates without feeling generic.
+            <p class="hero__lede">
+              The new direction leans darker, brighter, and more neighborhood.
+              Less boutique. More pull-up, see what&apos;s new, and catch updates
+              on the gram.
             </p>
 
-            <div class="hero-actions">
-              <a class="button button-solid" href="#hours">See today&apos;s hours</a>
-              <a
-                class="button button-outline"
-                href="https://www.instagram.com/smoke_haus313/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Follow the feed
-              </a>
+            <div class="hero__actions">
+              <a class="button button-neon" href="#hours">See today&apos;s hours</a>
+              <a class="button button-ghost" href="#pull-up">Tour the layout</a>
             </div>
 
-            <ul class="hero-notes" aria-label="Highlights">
-              <li>Storefront only for now</li>
-              <li>21+ shop messaging built in</li>
-              <li>Photos and product blocks ready to drop in later</li>
+            <ul class="hero__tags" aria-label="Highlights">
+              <li>21+ storefront</li>
+              <li>Products still loading in</li>
+              <li>Photos can drop in later</li>
             </ul>
           </div>
 
-          <aside class="hero-card">
-            <span class="section-tag section-tag-hero">Smoke signal</span>
-            <div class="hero-logo-frame">
+          <div class="hero__stack">
+            <article class="logo-poster">
+              <span class="sticker">Front window</span>
               <img src="./assets/logo.png" alt="Smokehaus 313 logo" />
-            </div>
+            </article>
 
-            <div class="status-strip">
+            <article class="status-panel">
               <div>
-                <p class="status-label">Live store status</p>
-                <p class="status-value" data-open-status>Checking hours...</p>
+                <p class="status-panel__label">Right now</p>
+                <p class="status-panel__value" data-open-status>Checking hours...</p>
               </div>
-              <span class="age-pill">21+</span>
-            </div>
+              <span class="status-panel__badge">21+</span>
+            </article>
+          </div>
+        </section>
 
-            <dl class="hero-meta">
-              <div>
-                <dt>Handle</dt>
-                <dd>@smoke_haus313</dd>
-              </div>
-              <div>
-                <dt>Domain</dt>
-                <dd>smokehaus313</dd>
-              </div>
-              <div>
-                <dt>Site mode</dt>
-                <dd>Custom coded, ready to upload</dd>
-              </div>
-            </dl>
+        <section class="ticker" aria-label="Smokehaus broadcast">
+          <div class="ticker__track">
+            <span>Smokehaus 313</span>
+            <span>Detroit storefront</span>
+            <span>21+ only</span>
+            <span>Hours posted</span>
+            <span>Instagram updates</span>
+            <span>Smokehaus 313</span>
+            <span>Detroit storefront</span>
+            <span>21+ only</span>
+            <span>Hours posted</span>
+            <span>Instagram updates</span>
+          </div>
+        </section>
+
+        <section class="pull-up" id="pull-up">
+          <article class="pull-up__story">
+            <p class="section-mark">The vibe</p>
+            <h2>Built like a flyer, not a brochure.</h2>
+            <p>
+              The street version of the site trades the clean white-card look
+              for darker layers, sticker details, tape lines, loud type, and a
+              little chaos that still feels intentional.
+            </p>
+            <p>
+              That means the site can feel closer to the kind of place you walk
+              into after spotting the lights from the street, while still making
+              the basics easy to find.
+            </p>
+          </article>
+
+          <aside class="pull-up__note">
+            <span class="sticker sticker--lime">WIP board</span>
+            <ul>
+              <li>Address and pin drop still need to be plugged in</li>
+              <li>Shop photos will slide into the frames below later</li>
+              <li>Product categories can stay broad until you lock them in</li>
+            </ul>
           </aside>
         </section>
 
-        <section class="signal-band" aria-label="Current site status">
-          <article>
-            <h2>Fast to launch</h2>
-            <p>No cart, no checkout, no extra clutter. Just the storefront.</p>
-          </article>
-          <article>
-            <h2>Easy to grow</h2>
-            <p>Photos, featured brands, map, and contact details can slot in later.</p>
-          </article>
-          <article>
-            <h2>On-brand</h2>
-            <p>Color pulls from the logo, but the site stays bright and clean.</p>
-          </article>
-        </section>
-
-        <section class="content-grid" id="vibe">
-          <div class="copy-card">
-            <span class="section-tag">Shop feel</span>
-            <h2>Professional first, a little off-center on purpose.</h2>
-            <p>
-              The layout keeps the business side tight and readable, then leans
-              into a few bent lines, color pops, and smoke-shop attitude so it
-              doesn&apos;t end up looking like a law office or a cookie-cutter
-              template.
-            </p>
-            <p>
-              White replaces the heavy black from the source logo, while the
-              teal, yellow, red, and smoke tones carry the identity across the
-              whole page.
-            </p>
+        <section class="photo-wall" aria-labelledby="photo-wall-title">
+          <div class="section-head">
+            <p class="section-mark">Photo wall</p>
+            <h2 id="photo-wall-title">Reserved space for the real shop shots.</h2>
           </div>
 
-          <div class="checklist-card">
-            <span class="section-tag section-tag-tilt">Still loading</span>
-            <ul>
-              <li>Storefront photos can drop into the placeholders below</li>
-              <li>Address and map can be added once you lock the final listing</li>
-              <li>Product and brand sections are set up as works in progress</li>
-            </ul>
-          </div>
-        </section>
-
-        <section class="photo-section" aria-labelledby="photo-spots-heading">
-          <div class="section-heading">
-            <span class="section-tag">Photo spots</span>
-            <h2 id="photo-spots-heading">Reserved space for the shop shots.</h2>
-          </div>
-
-          <div class="photo-grid">
-            <article class="photo-placeholder">
-              <h3>Front door / exterior</h3>
-              <p>Best for the first impression and quick recognition.</p>
+          <div class="photo-wall__grid">
+            <article class="photo-frame">
+              <span>Outside shot</span>
+              <h3>Front door / sign</h3>
+              <p>Best place for that first look when someone lands on the site.</p>
             </article>
-            <article class="photo-placeholder photo-placeholder-offset">
-              <h3>Counter / register view</h3>
-              <p>Good place for a clean interior shot once you&apos;re ready.</p>
+            <article class="photo-frame photo-frame--tilt">
+              <span>Inside shot</span>
+              <h3>Counter / register</h3>
+              <p>Good for showing the spot without trying to stage everything.</p>
             </article>
-            <article class="photo-placeholder">
-              <h3>Feature wall / shelves</h3>
-              <p>Works well when you want to show the vibe without listing every item.</p>
+            <article class="photo-frame">
+              <span>Shelf shot</span>
+              <h3>Feature wall / display</h3>
+              <p>Great for vibe and stock cues once you get fresh photos.</p>
             </article>
           </div>
         </section>
 
-        <section class="shelf-section" id="shelves">
-          <div class="section-heading">
-            <span class="section-tag section-tag-tilt">Shelf talk</span>
-            <h2>Products can stay soft until you want to sharpen them up.</h2>
+        <section class="shelves" id="shelves">
+          <div class="section-head">
+            <p class="section-mark">Shelf talk</p>
+            <h2>Work-in-progress sections that still feel alive.</h2>
           </div>
 
-          <div class="shelf-grid">
+          <div class="shelves__grid">
             <article class="shelf-card">
-              <h3>Shop staples</h3>
+              <span class="shelf-card__tag">Staples</span>
+              <h3>Daily go-to picks</h3>
               <p>
-                Keep this broad for now, then swap in real categories once the
-                list is finalized.
+                A flexible slot for the categories people expect to find every
+                time they pull up.
               </p>
             </article>
-            <article class="shelf-card shelf-card-accent">
+            <article class="shelf-card shelf-card--hot">
+              <span class="shelf-card__tag">Fresh</span>
               <h3>New arrivals</h3>
               <p>
-                This can become a rotating block later without redesigning the
-                whole page.
+                Easy place to rotate in what is new without rebuilding the whole
+                homepage.
               </p>
             </article>
             <article class="shelf-card">
-              <h3>Featured brands</h3>
+              <span class="shelf-card__tag">Brands</span>
+              <h3>Lineup coming soon</h3>
               <p>
-                Leave it light now, then drop logos or brand names in as the
-                lineup gets locked.
+                Keep this broad now, then drop in real names and logos once the
+                list is final.
               </p>
             </article>
             <article class="shelf-card">
-              <h3>House picks</h3>
+              <span class="shelf-card__tag">Shop picks</span>
+              <h3>Staff favorites</h3>
               <p>
-                A flexible section for staff favorites, shop notes, or quick
-                promos down the road.
+                Room for quick callouts, featured gear, or whatever deserves a
+                little extra shine.
               </p>
             </article>
           </div>
         </section>
 
-        <section class="hours-section" id="hours">
-          <div class="section-heading">
-            <span class="section-tag">Store hours</span>
-            <h2>Easy to check, easy to trust.</h2>
-          </div>
+        <section class="hours-block" id="hours">
+          <article class="hours-board">
+            <div class="section-head section-head--tight">
+              <p class="section-mark">Hours</p>
+              <h2>Know before you slide through.</h2>
+            </div>
 
-          <div class="hours-layout">
-            <article class="hours-card">
-              <div class="hours-card-header">
-                <div>
-                  <p class="status-label">Current status</p>
-                  <p class="status-value" data-open-status-secondary>
-                    Checking hours...
-                  </p>
-                </div>
-                <p class="timezone-note">Times shown in Eastern Time</p>
+            <div class="hours-board__top">
+              <div>
+                <p class="status-panel__label">Current status</p>
+                <p class="status-panel__value" data-open-status-secondary>
+                  Checking hours...
+                </p>
               </div>
+              <p class="hours-board__timezone">Eastern Time</p>
+            </div>
 
-              <ul class="hours-list" aria-label="Weekly hours">
-                <li data-day="Mon">
-                  <span>Mon</span>
-                  <strong>12:00 PM - 6:00 PM</strong>
-                </li>
-                <li data-day="Tue">
-                  <span>Tue</span>
-                  <strong>10:00 AM - 4:00 PM</strong>
-                </li>
-                <li data-day="Wed">
-                  <span>Wed</span>
-                  <strong>12:00 PM - 6:00 PM</strong>
-                </li>
-                <li data-day="Thu">
-                  <span>Thu</span>
-                  <strong>12:00 PM - 6:00 PM</strong>
-                </li>
-                <li data-day="Fri">
-                  <span>Fri</span>
-                  <strong>12:00 PM - 7:00 PM</strong>
-                </li>
-                <li data-day="Sat">
-                  <span>Sat</span>
-                  <strong>11:00 AM - 7:00 PM</strong>
-                </li>
-                <li data-day="Sun">
-                  <span>Sun</span>
-                  <strong>1:00 PM - 6:00 PM</strong>
-                </li>
-              </ul>
-            </article>
+            <ul class="hours-list" aria-label="Weekly hours">
+              <li data-day="Mon">
+                <span>Mon</span>
+                <strong>12:00 PM - 6:00 PM</strong>
+              </li>
+              <li data-day="Tue">
+                <span>Tue</span>
+                <strong>10:00 AM - 4:00 PM</strong>
+              </li>
+              <li data-day="Wed">
+                <span>Wed</span>
+                <strong>12:00 PM - 6:00 PM</strong>
+              </li>
+              <li data-day="Thu">
+                <span>Thu</span>
+                <strong>12:00 PM - 6:00 PM</strong>
+              </li>
+              <li data-day="Fri">
+                <span>Fri</span>
+                <strong>12:00 PM - 7:00 PM</strong>
+              </li>
+              <li data-day="Sat">
+                <span>Sat</span>
+                <strong>11:00 AM - 7:00 PM</strong>
+              </li>
+              <li data-day="Sun">
+                <span>Sun</span>
+                <strong>1:00 PM - 6:00 PM</strong>
+              </li>
+            </ul>
+          </article>
 
-            <article class="visit-card" id="contact">
-              <span class="section-tag section-tag-hero">Next details</span>
-              <h3>What still needs to be plugged in before final launch</h3>
-              <ul class="visit-list">
-                <li>Street address and embedded map</li>
-                <li>Phone number</li>
-                <li>Final storefront and interior photos</li>
-                <li>Real product or brand callouts</li>
-              </ul>
+          <article class="contact-block" id="contact">
+            <span class="sticker">Tap in</span>
+            <h3>Still to be added before the final live push</h3>
+            <ul>
+              <li>Street address and map link</li>
+              <li>Phone number</li>
+              <li>Real storefront photos</li>
+              <li>Final product and brand callouts</li>
+            </ul>
 
-              <div class="contact-actions">
-                <a
-                  class="button button-solid"
-                  href="https://www.instagram.com/smoke_haus313/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  DM on Instagram
-                </a>
-              </div>
-            </article>
-          </div>
+            <a
+              class="button button-neon"
+              href="https://www.instagram.com/smoke_haus313/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              DM on Instagram
+            </a>
+          </article>
         </section>
       </main>
 
-      <footer class="footer">
+      <footer class="site-footer">
         <div>
           <strong>Smokehaus 313</strong>
-          <p>Storefront site. No online ordering yet.</p>
+          <p>Storefront site. 21+ only. No online ordering yet.</p>
         </div>
-        <div class="footer-links">
+        <div class="site-footer__links">
           <a href="#hours">Hours</a>
-          <a href="https://www.instagram.com/smoke_haus313/" target="_blank" rel="noreferrer">
+          <a
+            href="https://www.instagram.com/smoke_haus313/"
+            target="_blank"
+            rel="noreferrer"
+          >
             Instagram
           </a>
         </div>

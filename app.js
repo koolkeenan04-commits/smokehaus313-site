@@ -14,6 +14,15 @@ const statusTargets = document.querySelectorAll(
 );
 const dayRows = document.querySelectorAll("[data-day]");
 
+const ageGate = document.querySelector("[data-age-gate]");
+const ageForm = document.querySelector("[data-age-form]");
+const ageError = document.querySelector("[data-age-error]");
+const monthInput = document.querySelector("[data-age-month]");
+const dayInput = document.querySelector("[data-age-day]");
+const yearInput = document.querySelector("[data-age-year]");
+const exitButton = document.querySelector("[data-age-exit]");
+const ageStorageKey = "smokehaus313-age-ok";
+
 function getEasternNow() {
   const now = new Date();
   const formatter = new Intl.DateTimeFormat("en-US", {
@@ -26,12 +35,10 @@ function getEasternNow() {
 
   const parts = formatter.formatToParts(now);
   const values = Object.fromEntries(parts.map((part) => [part.type, part.value]));
-  const hour = Number(values.hour);
-  const minute = Number(values.minute);
 
   return {
     day: values.weekday,
-    minutes: hour * 60 + minute
+    minutes: Number(values.hour) * 60 + Number(values.minute)
   };
 }
 
@@ -86,5 +93,103 @@ function renderStatus() {
   });
 }
 
+function hideAgeGate() {
+  if (!ageGate) {
+    return;
+  }
+
+  document.body.classList.remove("gate-open");
+  ageGate.classList.add("is-hidden");
+}
+
+function showAgeError(message) {
+  if (ageError) {
+    ageError.textContent = message;
+  }
+}
+
+function parseDateInput() {
+  const month = Number(monthInput?.value);
+  const day = Number(dayInput?.value);
+  const year = Number(yearInput?.value);
+
+  if (!month || !day || !year) {
+    return null;
+  }
+
+  const birthDate = new Date(year, month - 1, day);
+  const isValidDate =
+    birthDate.getFullYear() === year &&
+    birthDate.getMonth() === month - 1 &&
+    birthDate.getDate() === day;
+
+  if (!isValidDate) {
+    return null;
+  }
+
+  return { month, day, year };
+}
+
+function getAge({ month, day, year }) {
+  const today = new Date();
+  let age = today.getFullYear() - year;
+  const monthOffset = today.getMonth() - (month - 1);
+
+  if (monthOffset < 0 || (monthOffset === 0 && today.getDate() < day)) {
+    age -= 1;
+  }
+
+  return age;
+}
+
+function limitToDigits(event) {
+  const cleanedValue = event.target.value.replace(/\D/g, "");
+  if (event.target.value !== cleanedValue) {
+    event.target.value = cleanedValue;
+  }
+}
+
+function handleAgeSubmit(event) {
+  event.preventDefault();
+
+  const parsedDate = parseDateInput();
+  if (!parsedDate) {
+    showAgeError("Enter a valid birth date to continue.");
+    return;
+  }
+
+  if (getAge(parsedDate) < 21) {
+    showAgeError("This site is for visitors 21 and older.");
+    return;
+  }
+
+  sessionStorage.setItem(ageStorageKey, "true");
+  showAgeError("");
+  hideAgeGate();
+}
+
+function restoreGateState() {
+  if (sessionStorage.getItem(ageStorageKey) === "true") {
+    hideAgeGate();
+  }
+}
+
+if (monthInput && dayInput && yearInput) {
+  [monthInput, dayInput, yearInput].forEach((input) => {
+    input.addEventListener("input", limitToDigits);
+  });
+}
+
+if (ageForm) {
+  ageForm.addEventListener("submit", handleAgeSubmit);
+}
+
+if (exitButton) {
+  exitButton.addEventListener("click", () => {
+    showAgeError("You must be 21 or older to enter this site.");
+  });
+}
+
+restoreGateState();
 renderStatus();
 highlightToday();
