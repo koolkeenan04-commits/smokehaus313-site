@@ -1,0 +1,745 @@
+:root {
+  --paper: #fffcf7;
+  --paper-strong: #ffffff;
+  --ink: #181214;
+  --ink-soft: #5d5655;
+  --teal: #0eb9b3;
+  --teal-deep: #047b77;
+  --acid: #dfe83f;
+  --brick: #c92528;
+  --smoke-pink: #ff4ead;
+  --smoke-blue: #8deaff;
+  --line: #231b1e;
+  --shadow: 8px 8px 0 0 rgba(14, 185, 179, 0.18);
+  --card-radius: 28px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: "Space Grotesk", "Trebuchet MS", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(141, 234, 255, 0.34), transparent 24rem),
+    radial-gradient(circle at 85% 15%, rgba(255, 78, 173, 0.18), transparent 18rem),
+    linear-gradient(180deg, #fffefb 0%, #fff9f0 100%);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 20px 0 40px;
+}
+
+.topbar {
+  position: sticky;
+  top: 18px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 18px;
+  margin-bottom: 26px;
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 252, 247, 0.92);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 24px rgba(24, 18, 20, 0.08);
+}
+
+.brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border: 2px solid var(--line);
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--acid), var(--teal));
+  font-family: "Archivo Expanded", sans-serif;
+  font-size: 0.85rem;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.brand-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.brand-copy strong,
+.main-nav a,
+.button,
+.section-tag,
+.hours-list span,
+.hours-list strong,
+.status-label,
+.timezone-note {
+  letter-spacing: 0.04em;
+}
+
+.brand-copy strong {
+  font-size: 0.98rem;
+}
+
+.brand-copy small {
+  color: var(--ink-soft);
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.main-nav a {
+  position: relative;
+  font-size: 0.92rem;
+  text-transform: uppercase;
+}
+
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  background: var(--teal);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease;
+}
+
+.main-nav a:hover::after,
+.main-nav a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 48px;
+  padding: 0 18px;
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.93rem;
+  text-transform: uppercase;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 16px rgba(24, 18, 20, 0.12);
+}
+
+.button-solid {
+  background: var(--teal);
+}
+
+.button-outline {
+  background: var(--paper-strong);
+}
+
+.button-small {
+  min-height: 42px;
+  padding-inline: 16px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 26px;
+  align-items: start;
+  margin-bottom: 24px;
+}
+
+.hero-copy,
+.hero-card,
+.signal-band article,
+.copy-card,
+.checklist-card,
+.photo-placeholder,
+.shelf-card,
+.hours-card,
+.visit-card {
+  position: relative;
+  border: 2px solid var(--line);
+  border-radius: var(--card-radius);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.hero-copy {
+  overflow: hidden;
+  padding: 38px 34px 34px;
+  box-shadow: var(--shadow);
+}
+
+.hero-copy::before,
+.hero-card::before {
+  content: "";
+  position: absolute;
+  inset: auto auto -38px -28px;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(14, 185, 179, 0.22), transparent 68%);
+  pointer-events: none;
+}
+
+.hero-copy::after {
+  content: "";
+  position: absolute;
+  top: 14px;
+  right: 24px;
+  width: 96px;
+  height: 26px;
+  border-top: 3px solid var(--smoke-pink);
+  border-right: 3px solid transparent;
+  border-radius: 999px;
+  opacity: 0.7;
+  transform: rotate(-7deg);
+}
+
+.eyebrow,
+.hero-notes,
+.signal-band p,
+.copy-card p,
+.checklist-card li,
+.photo-placeholder p,
+.shelf-card p,
+.visit-list,
+.footer p {
+  color: var(--ink-soft);
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.hero h1,
+.section-heading h2,
+.copy-card h2,
+.checklist-card h3,
+.photo-placeholder h3,
+.shelf-card h3,
+.visit-card h3 {
+  margin: 0;
+  font-family: "Archivo Expanded", sans-serif;
+  line-height: 1.02;
+}
+
+.hero h1 {
+  max-width: 10ch;
+  font-size: clamp(3.1rem, 6vw, 5.4rem);
+  text-transform: uppercase;
+}
+
+.hero-brand {
+  display: block;
+  color: var(--teal-deep);
+  text-shadow: 2px 2px 0 var(--acid);
+}
+
+.hero-brand span {
+  display: block;
+}
+
+.hero-text {
+  max-width: 56ch;
+  margin: 18px 0 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.hero-notes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 0;
+  margin: 26px 0 0;
+  list-style: none;
+}
+
+.hero-notes li {
+  padding: 10px 14px;
+  border: 1.5px dashed rgba(24, 18, 20, 0.24);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.hero-card {
+  padding: 24px;
+  box-shadow: 10px 10px 0 0 rgba(201, 37, 40, 0.16);
+  transform: rotate(0.8deg);
+}
+
+.section-tag {
+  display: inline-flex;
+  padding: 8px 12px;
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  background: var(--acid);
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.section-tag-hero {
+  background: var(--smoke-blue);
+}
+
+.section-tag-tilt {
+  transform: rotate(-2deg);
+}
+
+.hero-logo-frame {
+  display: grid;
+  place-items: center;
+  min-height: 320px;
+  margin-top: 16px;
+  padding: 18px;
+  border: 2px solid var(--line);
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 252, 247, 0.96)),
+    linear-gradient(135deg, rgba(255, 78, 173, 0.18), rgba(141, 234, 255, 0.18));
+}
+
+.hero-logo-frame img {
+  width: min(100%, 340px);
+  border-radius: 18px;
+  box-shadow: 0 20px 32px rgba(24, 18, 20, 0.18);
+}
+
+.status-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 18px;
+  padding: 16px;
+  border-radius: 20px;
+  background: rgba(24, 18, 20, 0.04);
+}
+
+.status-label {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.status-value {
+  margin: 6px 0 0;
+  font-size: 1.18rem;
+  font-weight: 700;
+}
+
+.age-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 62px;
+  height: 62px;
+  border: 2px solid var(--line);
+  border-radius: 18px;
+  background: var(--brick);
+  color: var(--paper-strong);
+  font-family: "Archivo Expanded", sans-serif;
+}
+
+.hero-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 18px 0 0;
+}
+
+.hero-meta div {
+  padding: 14px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1.5px solid rgba(24, 18, 20, 0.12);
+}
+
+.hero-meta dt {
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+}
+
+.hero-meta dd {
+  margin: 8px 0 0;
+  font-weight: 700;
+}
+
+.signal-band {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.signal-band article {
+  padding: 20px;
+}
+
+.signal-band h2 {
+  margin: 0 0 10px;
+  font-family: "Archivo Expanded", sans-serif;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.signal-band p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.content-grid,
+.hours-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 20px;
+}
+
+.copy-card,
+.checklist-card,
+.hours-card,
+.visit-card {
+  padding: 26px;
+}
+
+.copy-card h2,
+.section-heading h2 {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  text-transform: uppercase;
+}
+
+.copy-card p,
+.checklist-card li,
+.photo-placeholder p,
+.shelf-card p,
+.visit-list li,
+.hours-list li {
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.checklist-card {
+  align-self: stretch;
+  background:
+    linear-gradient(180deg, rgba(14, 185, 179, 0.09), rgba(255, 255, 255, 0.95)),
+    rgba(255, 255, 255, 0.92);
+  transform: rotate(-0.7deg);
+}
+
+.checklist-card ul,
+.visit-list {
+  margin: 18px 0 0;
+  padding-left: 18px;
+}
+
+.photo-section,
+.shelf-section,
+.hours-section {
+  margin-top: 22px;
+}
+
+.section-heading {
+  margin-bottom: 16px;
+}
+
+.section-heading h2 {
+  margin-top: 12px;
+}
+
+.photo-grid,
+.shelf-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.photo-placeholder,
+.shelf-card {
+  padding: 24px;
+}
+
+.photo-placeholder {
+  min-height: 260px;
+  background:
+    linear-gradient(135deg, rgba(223, 232, 63, 0.12), rgba(141, 234, 255, 0.08)),
+    repeating-linear-gradient(
+      45deg,
+      rgba(24, 18, 20, 0.03) 0,
+      rgba(24, 18, 20, 0.03) 10px,
+      transparent 10px,
+      transparent 20px
+    );
+}
+
+.photo-placeholder::before {
+  content: "+";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  border: 2px dashed rgba(24, 18, 20, 0.4);
+  border-radius: 18px;
+  margin-bottom: 20px;
+  font-family: "Archivo Expanded", sans-serif;
+  font-size: 1.3rem;
+}
+
+.photo-placeholder-offset {
+  transform: translateY(12px);
+}
+
+.shelf-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.shelf-card {
+  min-height: 220px;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.shelf-card-accent {
+  background:
+    linear-gradient(180deg, rgba(255, 78, 173, 0.09), rgba(255, 255, 255, 0.95)),
+    rgba(255, 255, 255, 0.92);
+}
+
+.hours-card {
+  box-shadow: var(--shadow);
+}
+
+.hours-card-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.timezone-note {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+}
+
+.hours-list {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.hours-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 15px 0;
+  border-top: 1px solid rgba(24, 18, 20, 0.12);
+}
+
+.hours-list li:first-child {
+  border-top: 0;
+}
+
+.hours-list li.active {
+  padding-inline: 12px;
+  border-radius: 18px;
+  background: rgba(223, 232, 63, 0.28);
+}
+
+.visit-card {
+  align-self: start;
+  background:
+    linear-gradient(180deg, rgba(201, 37, 40, 0.08), rgba(255, 255, 255, 0.95)),
+    rgba(255, 255, 255, 0.92);
+}
+
+.contact-actions {
+  margin-top: 24px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 26px 8px 0;
+}
+
+.footer strong {
+  font-family: "Archivo Expanded", sans-serif;
+  text-transform: uppercase;
+}
+
+.footer p {
+  margin: 6px 0 0;
+}
+
+.footer-links {
+  display: flex;
+  gap: 16px;
+  text-transform: uppercase;
+  font-size: 0.88rem;
+}
+
+@media (max-width: 1040px) {
+  .hero,
+  .content-grid,
+  .hours-layout,
+  .signal-band,
+  .shelf-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-card,
+  .checklist-card {
+    transform: none;
+  }
+
+  .photo-placeholder-offset {
+    transform: none;
+  }
+
+  .hero-meta {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 840px) {
+  .site-shell {
+    width: min(100% - 22px, 1180px);
+  }
+
+  .topbar {
+    top: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 30px;
+  }
+
+  .main-nav {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-copy,
+  .hero-card,
+  .copy-card,
+  .checklist-card,
+  .hours-card,
+  .visit-card {
+    padding: 22px;
+  }
+
+  .hero h1 {
+    max-width: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-shell {
+    width: min(100% - 16px, 1180px);
+    padding-top: 10px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.15rem, 11.8vw, 3.35rem);
+    line-height: 0.98;
+  }
+
+  .hero-brand {
+    font-size: 0.88em;
+  }
+
+  .topbar {
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .brand-lockup {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .status-strip,
+  .hours-card-header,
+  .footer {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .hero-actions,
+  .hero-notes {
+    flex-direction: column;
+  }
+
+  .hero-actions .button,
+  .contact-actions .button,
+  .button-small {
+    width: 100%;
+  }
+
+  .hours-list li {
+    flex-direction: column;
+    align-items: start;
+    gap: 6px;
+  }
+}
