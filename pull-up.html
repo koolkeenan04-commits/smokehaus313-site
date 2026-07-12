@@ -1,86 +1,227 @@
-# Smokehaus 313 storefront site
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pull Up | Smokehaus 313</title>
+    <meta
+      name="description"
+      content="The vibe behind Smokehaus 313 — a Detroit storefront smoke shop built like a flyer, not a brochure. See the layout and where the shop photos land."
+    />
+    <link rel="icon" type="image/png" href="./assets/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script>
+      try {
+        if (sessionStorage.getItem("smokehaus313-age-ok") === "true") {
+          document.documentElement.classList.add("age-ok");
+        }
+      } catch (error) {}
+    </script>
+  </head>
+  <body class="gate-open">
+    <div class="age-gate" data-age-gate>
+      <div class="age-gate__backdrop"></div>
+      <section class="age-gate__panel" aria-labelledby="age-gate-title">
+        <div class="age-gate__logo">
+          <img src="./assets/logo.png" alt="Smokehaus 313 logo" />
+        </div>
+        <p class="age-gate__eyebrow">21+ only</p>
+        <h1 id="age-gate-title">Step into Smokehaus 313</h1>
+        <p class="age-gate__copy">
+          This storefront site is for visitors 21 and older. Drop your date of
+          birth below to enter.
+        </p>
 
-Static custom site for `Smokehaus 313`.
+        <form class="age-gate__form" data-age-form>
+          <label>
+            <span>Month</span>
+            <input
+              type="text"
+              inputmode="numeric"
+              maxlength="2"
+              placeholder="MM"
+              aria-label="Birth month"
+              data-age-month
+            />
+          </label>
+          <label>
+            <span>Day</span>
+            <input
+              type="text"
+              inputmode="numeric"
+              maxlength="2"
+              placeholder="DD"
+              aria-label="Birth day"
+              data-age-day
+            />
+          </label>
+          <label>
+            <span>Year</span>
+            <input
+              type="text"
+              inputmode="numeric"
+              maxlength="4"
+              placeholder="YYYY"
+              aria-label="Birth year"
+              data-age-year
+            />
+          </label>
 
-## Project files
+          <div class="age-gate__actions">
+            <button class="button button-neon" type="submit">Enter site</button>
+            <button class="button button-ghost" type="button" data-age-exit>
+              Not 21+
+            </button>
+          </div>
+        </form>
 
-- `index.html`: Home — hero, live status, and cards linking to every page
-- `pull-up.html`: Pull Up — the vibe/about story and the photo wall placeholders
-- `shelves.html`: Shelves — product/category placeholder cards
-- `hours.html`: Hours & Location — weekly hours, live status, location placeholder
-- `contact.html`: Contact — Instagram DM CTA and pending contact details
-- `styles.css`: shared site styling for all pages
-- `app.js`: age gate, live open/closed status, mobile menu, scroll-reveal animations
-- `assets/logo.png`: current logo asset
+        <p class="age-gate__error" data-age-error aria-live="polite"></p>
+      </section>
+    </div>
 
-## What is already wired up
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand-chip" href="./index.html" aria-label="Smokehaus 313 home">
+          <span class="brand-chip__stamp">313</span>
+          <span class="brand-chip__copy">
+            <strong>Smokehaus 313</strong>
+            <small>Detroit storefront smoke shop</small>
+          </span>
+        </a>
 
-- Smokehaus 313 branding
-- Separate landing pages with a shared header, nav, and footer
-- Active-page highlight in the nav plus a mobile hamburger menu
-- 21+ age gate that carries across pages (remembered per browser session)
-- Store hours with live open/closed status
-- Instagram link
-- Placeholder sections for photos and product/category content
-- Scroll-triggered fade-ins and subtle hover effects (respects reduced motion)
-- Storefront-only messaging
-- Static hosting-friendly structure (plain HTML/CSS/JS, no build step)
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="primary-nav"
+          data-nav-toggle
+        >
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="visually-hidden">Menu</span>
+        </button>
 
-## What still needs to be added before final launch
+        <nav class="site-nav" id="primary-nav" aria-label="Primary" data-nav>
+          <a href="./index.html">Home</a>
+          <a href="./pull-up.html" aria-current="page">Pull Up</a>
+          <a href="./shelves.html">Shelves</a>
+          <a href="./hours.html">Hours</a>
+          <a href="./contact.html">Contact</a>
+        </nav>
 
-- Street address
-- Phone number
-- Google Maps embed or directions link
-- Real storefront and interior photos
-- Final product or brand copy
-- Logo cleanup if you want a white or transparent version instead of the current dark background image
+        <a
+          class="button button-ghost header-cta"
+          href="https://www.instagram.com/smoke_haus313/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Hit the IG
+        </a>
+      </header>
 
-## Recommended workflow
+      <main id="top">
+        <section class="page-hero" data-reveal>
+          <p class="section-mark">The vibe</p>
+          <h1>Built like a flyer, not a brochure.</h1>
+          <p class="hero__lede">
+            The street version of the site trades the clean white-card look for
+            darker layers, sticker details, tape lines, loud type, and a little
+            chaos that still feels intentional.
+          </p>
+        </section>
 
-Use `GitHub` for the code and `Vercel` for the live site.
+        <section class="pull-up">
+          <article class="pull-up__story" data-reveal>
+            <p class="section-mark">Walk-in energy</p>
+            <h2>Closer to spotting the lights from the street.</h2>
+            <p>
+              That means the site can feel closer to the kind of place you walk
+              into after spotting the lights from the street, while still
+              making the basics easy to find.
+            </p>
+            <p>
+              Less boutique. More pull-up, see what&apos;s new, and catch
+              updates on the gram.
+            </p>
+            <div class="hero__actions">
+              <a class="button button-neon" href="./shelves.html">Scan the shelves</a>
+              <a class="button button-ghost" href="./hours.html">Check the hours</a>
+            </div>
+          </article>
 
-### Suggested repo name
+          <aside class="pull-up__note" data-reveal style="--reveal-delay: 120ms">
+            <span class="sticker sticker--lime">WIP board</span>
+            <ul>
+              <li>Address and pin drop still need to be plugged in</li>
+              <li>Shop photos will slide into the frames below later</li>
+              <li>Product categories can stay broad until you lock them in</li>
+            </ul>
+          </aside>
+        </section>
 
-`smokehaus313-site`
+        <section class="photo-wall" aria-labelledby="photo-wall-title">
+          <div class="section-head" data-reveal>
+            <p class="section-mark">Photo wall</p>
+            <h2 id="photo-wall-title">Reserved space for the real shop shots.</h2>
+          </div>
 
-### GitHub flow
+          <div class="photo-wall__grid">
+            <article class="photo-frame" data-reveal>
+              <span>Outside shot</span>
+              <h3>Front door / sign</h3>
+              <p>Best place for that first look when someone lands on the site.</p>
+            </article>
+            <article class="photo-frame photo-frame--tilt" data-reveal style="--reveal-delay: 100ms">
+              <span>Inside shot</span>
+              <h3>Counter / register</h3>
+              <p>Good for showing the spot without trying to stage everything.</p>
+            </article>
+            <article class="photo-frame" data-reveal style="--reveal-delay: 200ms">
+              <span>Shelf shot</span>
+              <h3>Feature wall / display</h3>
+              <p>Great for vibe and stock cues once you get fresh photos.</p>
+            </article>
+          </div>
+        </section>
 
-1. Create a new GitHub repo named `smokehaus313-site`.
-2. Push this folder to that repo.
-3. Keep making edits locally and push changes when you want the site updated.
+        <section class="cta-band" data-reveal>
+          <div>
+            <p class="section-mark">Next stop</p>
+            <h2>See what the shelves are holding.</h2>
+          </div>
+          <a class="button button-neon" href="./shelves.html">Go to Shelves</a>
+        </section>
+      </main>
 
-### Vercel flow
+      <footer class="site-footer">
+        <div>
+          <strong>Smokehaus 313</strong>
+          <p>Storefront site. 21+ only. No online ordering yet.</p>
+        </div>
+        <nav class="site-footer__links" aria-label="Footer">
+          <a href="./index.html">Home</a>
+          <a href="./pull-up.html">Pull Up</a>
+          <a href="./shelves.html">Shelves</a>
+          <a href="./hours.html">Hours</a>
+          <a href="./contact.html">Contact</a>
+          <a
+            href="https://www.instagram.com/smoke_haus313/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Instagram
+          </a>
+        </nav>
+      </footer>
+    </div>
 
-1. Sign in to Vercel.
-2. Import the `smokehaus313-site` GitHub repo.
-3. Let Vercel deploy it as a static site.
-4. After the first deploy works, attach the final custom domain.
-
-This project does not need a framework build step. Vercel can serve it directly from the repository root.
-
-## Push commands
-
-Run these inside the project folder after you create the GitHub repo:
-
-```powershell
-git branch -M main
-git add .
-git commit -m "Initial Smokehaus 313 site"
-git remote add origin https://github.com/YOUR-USERNAME/smokehaus313-site.git
-git push -u origin main
-```
-
-## Domain note
-
-`smokehaus313` by itself is not a complete public website domain. When you are ready to go live, you will want a real domain such as:
-
-- `smokehaus313.com`
-- `smokehaus313shop.com`
-- `smokehaus313detroit.com`
-
-## Good next content upgrades
-
-- Replace the current logo image with a transparent or white-background version
-- Add the shop address and map section
-- Add real storefront photos
-- Swap placeholder product copy for final categories or featured brands
+    <script src="./app.js"></script>
+  </body>
+</html>
