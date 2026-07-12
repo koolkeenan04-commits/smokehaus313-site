@@ -4,19 +4,27 @@ Static custom site for `Smokehaus 313`.
 
 ## Project files
 
-- `index.html`: page structure
-- `styles.css`: site styling
-- `app.js`: live open/closed status and current-day highlight
+- `index.html`: Home — hero, live status, and cards linking to every page
+- `pull-up.html`: Pull Up — the vibe/about story and the photo wall placeholders
+- `shelves.html`: Shelves — product/category placeholder cards
+- `hours.html`: Hours & Location — weekly hours, live status, location placeholder
+- `contact.html`: Contact — Instagram DM CTA and pending contact details
+- `styles.css`: shared site styling for all pages
+- `app.js`: age gate, live open/closed status, mobile menu, scroll-reveal animations
 - `assets/logo.png`: current logo asset
 
 ## What is already wired up
 
 - Smokehaus 313 branding
-- Store hours
+- Separate landing pages with a shared header, nav, and footer
+- Active-page highlight in the nav plus a mobile hamburger menu
+- 21+ age gate that carries across pages (remembered per browser session)
+- Store hours with live open/closed status
 - Instagram link
 - Placeholder sections for photos and product/category content
+- Scroll-triggered fade-ins and subtle hover effects (respects reduced motion)
 - Storefront-only messaging
-- Static hosting-friendly structure
+- Static hosting-friendly structure (plain HTML/CSS/JS, no build step)
 
 ## What still needs to be added before final launch
 
