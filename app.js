@@ -22,6 +22,7 @@ const dayInput = document.querySelector("[data-age-day]");
 const yearInput = document.querySelector("[data-age-year]");
 const exitButton = document.querySelector("[data-age-exit]");
 const ageStorageKey = "smokehaus313-age-ok";
+const shopifyCatalog = document.querySelector("[data-shopify-catalog]");
 
 function getEasternNow() {
   const now = new Date();
@@ -174,6 +175,26 @@ function restoreGateState() {
   }
 }
 
+function loadShopifyCatalog() {
+  if (!shopifyCatalog || shopifyCatalog.dataset.shopifyEnabled !== "true") {
+    return;
+  }
+
+  const mount = shopifyCatalog.querySelector("[data-shopify-mount]");
+  const template = shopifyCatalog.querySelector("[data-shopify-template]");
+
+  if (!mount || !template) {
+    return;
+  }
+
+  mount.append(template.content.cloneNode(true));
+
+  const script = document.createElement("script");
+  script.src = "https://cdn.shopify.com/storefront/web-components.js";
+  script.async = true;
+  document.head.append(script);
+}
+
 if (monthInput && dayInput && yearInput) {
   [monthInput, dayInput, yearInput].forEach((input) => {
     input.addEventListener("input", limitToDigits);
@@ -251,3 +272,4 @@ restoreGateState();
 renderStatus();
 highlightToday();
 setupReveals();
+loadShopifyCatalog();

@@ -293,6 +293,7 @@ html.age-ok body.gate-open {
 .pull-up,
 .photo-frame,
 .shelf-card,
+.shop-board,
 .hours-board,
 .contact-block,
 .site-footer {
@@ -671,7 +672,7 @@ html.age-ok body.gate-open {
 
 .explore__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 18px;
 }
 
@@ -929,6 +930,151 @@ html.age-ok body.gate-open {
   line-height: 0.95;
 }
 
+.shop-board {
+  position: relative;
+  margin-top: 24px;
+  padding: 28px;
+  border-radius: var(--radius-xl);
+  background:
+    linear-gradient(125deg, rgba(0, 210, 208, 0.08), transparent 45%),
+    linear-gradient(315deg, rgba(255, 63, 125, 0.1), transparent 38%),
+    rgba(10, 10, 10, 0.94);
+  overflow: hidden;
+}
+
+.shop-board::after {
+  content: "313";
+  position: absolute;
+  right: -16px;
+  bottom: -62px;
+  color: rgba(255, 255, 255, 0.035);
+  font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(10rem, 24vw, 20rem);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.shop-board > * {
+  position: relative;
+  z-index: 1;
+}
+
+.shop-board__top {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.shop-board__copy {
+  max-width: 52ch;
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.shopify-product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.shopify-product-card {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: rgba(18, 18, 18, 0.92);
+  overflow: hidden;
+}
+
+.shopify-product-card__media {
+  display: grid;
+  min-height: 240px;
+  place-items: center;
+  background:
+    repeating-linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.025) 0,
+      rgba(255, 255, 255, 0.025) 12px,
+      transparent 12px,
+      transparent 24px
+    ),
+    #0a0a0a;
+}
+
+.shopify-product-card__media shopify-media {
+  display: block;
+  width: 100%;
+}
+
+.shopify-product-card__body {
+  padding: 18px;
+}
+
+.shopify-product-card__eyebrow,
+.shop-empty-state > span {
+  color: var(--lime);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.shopify-product-card h3,
+.shop-empty-state h3 {
+  margin: 10px 0 0;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 0.95;
+}
+
+.shopify-product-card__price {
+  margin: 12px 0 18px;
+  color: var(--teal);
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.shopify-product-card .button {
+  width: 100%;
+}
+
+.shop-loading,
+.shop-empty-state {
+  border: 1px dashed rgba(255, 255, 255, 0.22);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.shop-loading {
+  padding: 18px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.shop-empty-state {
+  min-height: 260px;
+  padding: 28px;
+}
+
+.shop-empty-state::before {
+  content: "";
+  display: block;
+  width: 84px;
+  height: 10px;
+  margin-bottom: 28px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--hot), var(--yellow), var(--teal));
+}
+
+.shop-empty-state p {
+  max-width: 46ch;
+  margin: 14px 0 0;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
 .hours-block {
   align-items: start;
 }
@@ -1026,6 +1172,10 @@ html.age-ok body.gate-open {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .shopify-product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .photo-wall__grid {
     grid-template-columns: 1fr;
   }
@@ -1103,6 +1253,7 @@ html.age-ok body.gate-open {
 
   .hero,
   .page-hero,
+  .shop-board,
   .pull-up__story,
   .pull-up__note,
   .hours-board,
@@ -1155,6 +1306,15 @@ html.age-ok body.gate-open {
   }
 
   .explore__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .shop-board__top {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .shopify-product-grid {
     grid-template-columns: 1fr;
   }
 

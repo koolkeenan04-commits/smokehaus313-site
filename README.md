@@ -7,6 +7,7 @@ Static custom site for `Smokehaus 313`.
 - `index.html`: Home — hero, live status, and cards linking to every page
 - `pull-up.html`: Pull Up — the vibe/about story and the photo wall placeholders
 - `shelves.html`: Shelves — product/category placeholder cards
+- `shop.html`: Shop — Shopify-powered featured product board
 - `hours.html`: Hours & Location — weekly hours, live status, location placeholder
 - `contact.html`: Contact — Instagram DM CTA and pending contact details
 - `styles.css`: shared site styling for all pages
@@ -22,6 +23,7 @@ Static custom site for `Smokehaus 313`.
 - Store hours with live open/closed status
 - Instagram link
 - Placeholder sections for photos and product/category content
+- Shopify collection wiring with a safe coming-soon state until the store is public
 - Scroll-triggered fade-ins and subtle hover effects (respects reduced motion)
 - Storefront-only messaging
 - Static hosting-friendly structure (plain HTML/CSS/JS, no build step)
